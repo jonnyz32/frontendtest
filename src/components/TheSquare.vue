@@ -1,32 +1,38 @@
-<script setup>
+<script>
 import { ref } from 'vue'
-defineProps({
-  color: String,
-  rank: String
-})
-let highlighted = ref(false)
+export default {
 
-const toggleHighlight = () => {
-  console.log('Toggling highlight')
-  highlighted.value = !highlighted.value
-  console.log('new value:', highlighted.value)
+  props:{
+    color: String,
+    rank: String
+  
+  },
+  setup(){
+    let highlighted = ref(false)
+  
+  const toggleHighlight = () => {
+    console.log('Toggling highlight')
+    highlighted.value = !highlighted.value
+    console.log('new value:', highlighted.value)
+  }
+  return {highlighted, toggleHighlight}
+
+  }
+
 }
+
 </script>
 
 <template>
-  <div @click="toggleHighlight" class="square white" v-if="color === 'white'">
-    <div class="highlight" v-if="highlighted.value === true"></div>
+  <div @click="toggleHighlight" :class="['square', color === 'white' ? 'white': 'black']">
+    <div class="highlight" v-if="highlighted === true"></div>
     {{ rank }}
   </div>
-  <div @click="toggleHighlight" class="square black" v-else>
-    <div class="highlight" v-if="highlighted.value === true"></div>
-    {{ rank }}
-  </div>
-  <div class="highlight" v-if="highlighted.value === true"></div>
 </template>
 
 <style scoped>
 .square {
+  position: relative;
   aspect-ratio: 1;
   flex: 1;
   height: 100%;
@@ -40,7 +46,8 @@ const toggleHighlight = () => {
   background-color: burlywood;
 }
 .highlight {
-  background-color: pink;
+  position: absolute;
+  background-color: palevioletred;
   width: 100%;
   height: 100%;
   opacity: 0.5;
