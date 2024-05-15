@@ -44,11 +44,10 @@ export default {
 .clickList{
   font-size: 20px;
   font-weight: 600;
-  /* margin: 0; */
 
 }
 
 .clickListContainer{
-  margin-top: 60px;
+  margin-top: 40px;
 }
 </style>
