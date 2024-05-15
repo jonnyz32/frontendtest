@@ -1,9 +1,9 @@
-import './assets/main.css'
+import "./assets/main.css";
 
-import { createApp } from 'vue'
-import App from './App.vue'
-import store from './components/GlobalState.js';
+import { createApp } from "vue";
+import App from "./App.vue";
+import store from "./components/GlobalState.js";
 
 const app = createApp(App);
 app.provide("store", store);
-app.mount('#app')
+app.mount("#app");

@@ -13,13 +13,15 @@ export default {
       <h2>Clicked</h2>
     </div>
     <div class="clickListContainer">
-      <p class="clickList" v-for="(square, index) in store.state.clicked" :key="index">
-      {{index}}. {{ square }}
-    </p>
+      <p
+        class="clickList"
+        v-for="(square, index) in store.state.clicked"
+        :key="index"
+      >
+        {{ index }}. {{ square }}
+      </p>
     </div>
-   
   </div>
-
 </template>
 <style scoped>
 .sidebar {
@@ -36,18 +38,17 @@ export default {
   position: fixed;
   text-align: center;
   background-color: yellow;
-  >h2 {
+  > h2 {
     margin-bottom: 12px;
   }
 }
 
-.clickList{
+.clickList {
   font-size: 20px;
   font-weight: 600;
-
 }
 
-.clickListContainer{
+.clickListContainer {
   margin-top: 40px;
 }
 </style>
