@@ -9,28 +9,49 @@ export default {
 </script>
 <template>
   <div class="sidebar">
-    <h1>Clicked</h1>
-    <p class="clickList" v-for="(square, index) in store.state.clicked" :key="index">
+    <div class="header">
+      <h2>Clicked</h2>
+    </div>
+    <div class="clickListContainer">
+      <p class="clickList" v-for="(square, index) in store.state.clicked" :key="index">
       {{index}}. {{ square }}
     </p>
+    </div>
+   
   </div>
 
 </template>
 <style scoped>
 .sidebar {
+  overflow-x: hidden;
   display: flex;
   flex: 0.5;
   flex-grow: 1;
 
   flex-direction: column;
   align-items: center;
-  gap: 0.8rem;
   background-color: yellow;
+  overflow: scroll;
+  max-height: 100vh;
+  min-width: 100px;
+}
+.header {
+  position: fixed;
+  text-align: center;
+  background-color: yellow;
+  >h2 {
+    margin-bottom: 12px;
+  }
 }
 
 .clickList{
   font-size: 20px;
   font-weight: 600;
-  margin: 0;
+  /* margin: 0; */
+
+}
+
+.clickListContainer{
+  margin-top: 60px;
 }
 </style>
