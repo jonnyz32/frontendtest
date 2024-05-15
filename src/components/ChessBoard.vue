@@ -18,7 +18,7 @@ export default {
 </template>
 <style scoped>
 .board {
-  flex-grow: 1;
+  flex-grow: 10;
   flex-shrink: 1;
   max-width: 100vh;
   max-height: 100vh;

@@ -10,7 +10,7 @@ export default {
 <template>
   <div class="sidebar">
     <h1>Clicked</h1>
-    <p v-for="(square, index) in store.state.clicked" :key="index">
+    <p class="clickList" v-for="(square, index) in store.state.clicked" :key="index">
       {{index}}. {{ square }}
     </p>
   </div>
@@ -18,7 +18,19 @@ export default {
 </template>
 <style scoped>
 .sidebar {
+  display: flex;
   flex: 0.5;
+  flex-grow: 1;
+
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
   background-color: yellow;
+}
+
+.clickList{
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0;
 }
 </style>
