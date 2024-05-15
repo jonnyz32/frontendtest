@@ -28,5 +28,14 @@ return {store}
   display: flex;
   width: 100%;
   height: 100%;
+  max-height: 100vh;
+}
+
+/* Media query for mobile devices */
+@media screen and (max-width: 768px) {
+  .main{
+
+    flex-direction: column;
+  }
 }
 </style>

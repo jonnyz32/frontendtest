@@ -23,16 +23,13 @@ export default {
 </template>
 <style scoped>
 .sidebar {
-  overflow-x: hidden;
   display: flex;
   flex: 0.5;
   flex-grow: 1;
-
   flex-direction: column;
   align-items: center;
   background-color: yellow;
   overflow: scroll;
-  max-height: 100vh;
   min-width: 100px;
 }
 .header {
