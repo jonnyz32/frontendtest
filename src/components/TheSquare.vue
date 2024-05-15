@@ -1,30 +1,35 @@
 <script>
-import { ref } from 'vue'
+import { ref, inject } from "vue";
+
 export default {
-
-  props:{
+  props: {
     color: String,
-    rank: String
-  
+    rank: String,
   },
-  setup(){
-    let highlighted = ref(false)
-  
-  const toggleHighlight = () => {
-    console.log('Toggling highlight')
-    highlighted.value = !highlighted.value
-    console.log('new value:', highlighted.value)
-  }
-  return {highlighted, toggleHighlight}
+  setup() {
+    const store = inject("store");
+    let highlighted = ref(false);
 
-  }
-
-}
-
+    const toggleHighlight = () => {
+      console.log("Toggling highlight");
+      highlighted.value = !highlighted.value;
+      console.log("new value:", highlighted.value);
+      if (highlighted.value) {
+        store.addHighlight("c");
+      } else {
+        store.removeHighlight("c");
+      }
+    };
+    return { highlighted, toggleHighlight };
+  },
+};
 </script>
 
 <template>
-  <div @click="toggleHighlight" :class="['square', color === 'white' ? 'white': 'black']">
+  <div
+    @click="toggleHighlight"
+    :class="['square', color === 'white' ? 'white' : 'black']"
+  >
     <div class="highlight" v-if="highlighted === true"></div>
     {{ rank }}
   </div>

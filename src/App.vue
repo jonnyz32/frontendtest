@@ -1,11 +1,24 @@
-<script setup lang="ts">
+<script lang="ts">
 import ChessBoard from './components/ChessBoard.vue'
-import SideBar from './components/SideBar.vue'
+import SideBar from './components/SideBar.vue';
+import {inject} from "vue";
+
+export default {
+  components: {
+  ChessBoard,
+  SideBar,
+},
+setup(){
+const store = inject("store")
+return {store}
+}
+}
+
 </script>
 
 <template>
   <div class="main">
-    <ChessBoard />
+    <ChessBoard/>
     <SideBar />
   </div>
 </template>
