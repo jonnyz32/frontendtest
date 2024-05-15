@@ -4,9 +4,9 @@ import { ref, inject } from "vue";
 export default {
   props: {
     color: String,
-    rank: String,
+    coordinate: String,
   },
-  setup() {
+  setup(props) {
     const store = inject("store");
     let highlighted = ref(false);
 
@@ -15,9 +15,9 @@ export default {
       highlighted.value = !highlighted.value;
       console.log("new value:", highlighted.value);
       if (highlighted.value) {
-        store.addHighlight("c");
+        store.addHighlight(props.coordinate);
       } else {
-        store.removeHighlight("c");
+        store.removeHighlight(props.coordinate);
       }
     };
     return { highlighted, toggleHighlight };
@@ -31,7 +31,7 @@ export default {
     :class="['square', color === 'white' ? 'white' : 'black']"
   >
     <div class="highlight" v-if="highlighted === true"></div>
-    {{ rank }}
+    <span v-if="coordinate[0] === 'a'">{{ coordinate[1] }}</span>
   </div>
 </template>
 
